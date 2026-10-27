@@ -1,6 +1,6 @@
 # CultureNow
 
-[지원용 프로젝트 설명](docs/APPLICATION_PORTFOLIO.md)에 기여·AI 활용과 검증 범위를 정리했습니다. 신규 [18개 설계 시나리오 검토](evaluation/design-v1/RESULTS.md)는 **설계 명시 12개·부분 명시 3개·규칙 누락 3개**입니다. MVP가 없는 상태에서 시행한 문서 검토이며 제품 성능 점수가 아닙니다.
+[지원용 프로젝트 설명](docs/APPLICATION_PORTFOLIO.md)에 기여·AI 활용과 검증 범위를 정리했습니다. 신규 [18개 설계 시나리오 검토](evaluation/design-v1/RESULTS.md)는 **설계 보완 후 18/18 명시·부분 0개·누락 0개**입니다. MVP가 없는 상태에서 시행한 문서 검토이며 제품 성능 점수가 아닙니다.
 
 
 > 흩어진 공공 문화·체육·관광 정보를 모아, **지금 내 조건에서 실제로 할 수 있는 활동**을 골라주는 GovTech 서비스 기획

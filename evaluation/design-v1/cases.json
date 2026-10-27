@@ -124,59 +124,65 @@
     "title": "체류 종료와 폐관",
     "input": "18:20 도착, 18:30 폐관, 최소 체류 30분",
     "expected": "체류 완료까지 운영해야 하므로 제외",
-    "verdict": "PARTIAL",
+    "verdict": "SUPPORTED",
     "evidence_path": "docs/ARCHITECTURE.md",
-    "evidence_quote": "도착 전에 운영이 끝남",
-    "reason": "도착 시각 조건은 있지만 도착 후 최소 체류 완료까지 운영하는지 명시하지 않았다."
+    "evidence_quote": "`도착 시각 + 최소 체류시간 <= 폐관 시각`이어야 합니다.",
+    "reason": "체류 완료 시각을 폐관과 비교하며, 18:20 도착·18:30 폐관·30분 체류 예시를 명시적으로 제외한다.",
+    "previous_verdict": "PARTIAL"
   },
   {
     "id": "CN-14",
     "title": "일자 경계",
     "input": "23:30 출발, 00:30 종료, 자정 넘는 운영",
     "expected": "영업일과 시간대를 해석해 판정",
-    "verdict": "GAP",
+    "verdict": "SUPPORTED",
     "evidence_path": "docs/ARCHITECTURE.md",
-    "evidence_quote": "요일별 이용 가능 시간",
-    "reason": "자정을 넘는 영업과 예외 영업일의 판정 규칙이 없다."
+    "evidence_quote": "종료 시각이 시작 시각보다 이르면 종료일을 다음 날로 계산합니다.",
+    "reason": "영업 시작일·현지 시간대·다음 날 종료와 예외 영업일 우선순위를 정했다.",
+    "previous_verdict": "GAP"
   },
   {
     "id": "CN-15",
     "title": "오래된 정보",
     "input": "가격 확인 시각이 60일 전",
     "expected": "원천별 만료 기준에 따라 확인 필요",
-    "verdict": "PARTIAL",
+    "verdict": "SUPPORTED",
     "evidence_path": "docs/ARCHITECTURE.md",
-    "evidence_quote": "기준 시점을 노출하고 이용 전 재확인 안내",
-    "reason": "안내 원칙은 있지만 만료 기준과 원천별 허용 기간은 없다."
+    "evidence_quote": "운영시간·가격·행사 일정 | 24시간",
+    "reason": "가격 기본 유효기간을 24시간으로 두고 원천·확인 시각 중 오래된 시각을 기준으로 만료 처리한다. 60일 전 가격은 확인 필요다.",
+    "previous_verdict": "PARTIAL"
   },
   {
     "id": "CN-16",
     "title": "왕복 이동",
     "input": "가용 60분, 편도 25분, 체류 20분, 복귀 필요",
     "expected": "복귀 조건이 있으면 왕복 70분으로 제외",
-    "verdict": "GAP",
+    "verdict": "SUPPORTED",
     "evidence_path": "docs/ARCHITECTURE.md",
-    "evidence_quote": "이동과 최소 체류시간을 합치면 가용 시간을 초과함",
-    "reason": "편도·왕복의 의미와 복귀 조건 입력이 정해지지 않았다."
+    "evidence_quote": "가는 시간 + 최소 체류시간 + 돌아오는 시간 <= 가용 시간",
+    "reason": "복귀 여부·위치·마감 조건을 명시하고 25+20+25=70분이 가용 60분을 초과하는 예시를 제외한다.",
+    "previous_verdict": "GAP"
   },
   {
     "id": "CN-17",
     "title": "출처 충돌",
     "input": "API 무료, 기관 원문 유료",
     "expected": "확인 시각과 우선 출처 규칙으로 충돌 표시",
-    "verdict": "GAP",
+    "verdict": "SUPPORTED",
     "evidence_path": "docs/ARCHITECTURE.md",
-    "evidence_quote": "출처와 데이터 기준 시각",
-    "reason": "출처 필드는 있으나 상충 정보의 우선순위가 없다."
+    "evidence_quote": "API는 무료이고 기관 상세는 유료라면 기관 상세의 금액과 시각을 먼저 확인하되",
+    "reason": "동일 조건의 출처 충돌을 보존하고 운영기관 상세·공식 API·공공 집계 순의 확인 우선순위와 시각 조건을 정했다.",
+    "previous_verdict": "GAP"
   },
   {
     "id": "CN-18",
     "title": "점수 경계",
     "input": "후보 점수 차이가 0.001",
     "expected": "동률 기준과 정렬 방식 공개",
-    "verdict": "PARTIAL",
+    "verdict": "SUPPORTED",
     "evidence_path": "docs/ARCHITECTURE.md",
-    "evidence_quote": "순위를 과장하지 않고 동률에 가까움을 표시",
-    "reason": "동률에 가깝다는 안내만 있고 임계값과 정렬 규칙은 정해지지 않았다."
+    "evidence_quote": "0.01 이하의 차이는 같은 순위 구간으로 봅니다.",
+    "reason": "0~1 점수의 동률 임계값과 기준점 기반 묶음, 정보 확인·이동·비용·ID 순의 표시 규칙을 정했다.",
+    "previous_verdict": "PARTIAL"
   }
 ]
