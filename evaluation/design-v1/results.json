@@ -1,13 +1,13 @@
 {
   "scope": "AI design review + survey arithmetic; no implemented engine, API benchmark, user experiment, or independent expert review",
-  "executed_at": "2026-10-27T04:23:18.312147+00:00",
+  "executed_at": "2026-11-15T11:58:09.530489+00:00",
   "python": "3.11.9",
-  "source_commit": "1aa868508c8cb7d174794b25572ed9c0ba7065e5",
+  "source_commit": "2aa5b3679f2d4800cbb5721a2010222c0f14af6e",
   "hashes": {
-    "docs/ARCHITECTURE.md": "d470890f072447a8d8ea7de853e48665d137e757d0a251bfae33ef69168fe2e7",
+    "docs/ARCHITECTURE.md": "afcd528dba5b7172bbb57d87883128a6c69b06e53cdd5310581a48be98e48d6f",
     "docs/VALIDATION.md": "c19e58d2cd0c3393f16c3e49566dfbaeede4e351fadca98a5d213251ebe8730b",
-    "evaluation/design-v1/cases.json": "2af064630c5db29aea690b9dc138ea30b46d26a82ac8ce8c984a9f991bee6498",
-    "evaluation/design-v1/run.py": "f7ef4b91f3ccfb1cddebbc6f1e0b0f9feb321a7a5c09a70bb7938569f8eb7eb5"
+    "evaluation/design-v1/cases.json": "ce2ea907906ecbdd4bba39323df74679bd484586490ba53d7eb59a2d0ef4f4cb",
+    "evaluation/design-v1/run.py": "afcdd82c4cf53b9a923ce7b3aa87135b2cea7b907dc46cf8187c3a25e64cfe84"
   },
   "design_counts": {
     "SUPPORTED": 18,
